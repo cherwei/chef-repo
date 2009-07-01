@@ -4,5 +4,9 @@
       "name": "sharein_staging",
       "env": "staging"
     }
-  ]
+  ],
+  
+  "recipes": ["main"],
+  
+  "user": "zoe"
 }
