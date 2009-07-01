@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: main
+# Cookbook Name:: gems
 # Recipe:: default
 #
-# Copyright 2009, Example Com
+# Copyright 2009, Engine Yard, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,5 +17,18 @@
 # limitations under the License.
 #
 
-include_recipe "git"
-include_recipe "gems" unless ENV['SKIP_GEMS']
+node[:gems].each do |gem|
+  if gem.kind_of?(Hash)
+    gem_package gem[:name] do
+      if gem[:version] && !gem[:version].empty?
+        version gem[:version]
+      end
+      if gem[:source]
+        source gem[:source]
+      end
+      action :install
+    end
+  else
+    gem_package gem
+  end
+end
