@@ -29,10 +29,10 @@ NEW_COOKBOOK_LICENSE = :apachev2
 ##########################
 
 # Where to find upstream cookbooks
-COOKBOOK_PATH = "/var/chef/cookbooks"
+COOKBOOK_PATH = "/srv/chef/cookbooks"
 
 # Where to find site-local modifications to upstream cookbooks
-SITE_COOKBOOK_PATH = "/var/chef/site-cookbooks"
+SITE_COOKBOOK_PATH = "/srv/chef/site-cookbooks"
 
 # Chef Config Path
 CHEF_CONFIG_PATH = "/etc/chef"
