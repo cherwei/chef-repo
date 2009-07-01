@@ -17,18 +17,20 @@
 # limitations under the License.
 #
 
-node[:gems].each do |gem|
-  if gem.kind_of?(Hash)
-    gem_package gem[:name] do
-      if gem[:version] && !gem[:version].empty?
-        version gem[:version]
+if node[:gems]
+  node[:gems].each do |gem|
+    if gem.kind_of?(Hash)
+      gem_package gem[:name] do
+        if gem[:version] && !gem[:version].empty?
+          version gem[:version]
+        end
+        if gem[:source]
+          source gem[:source]
+        end
+        action :install
       end
-      if gem[:source]
-        source gem[:source]
-      end
-      action :install
+    else
+      gem_package gem
     end
-  else
-    gem_package gem
   end
 end
