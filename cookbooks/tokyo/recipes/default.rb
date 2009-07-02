@@ -18,3 +18,4 @@
 #
 
 include_recipe "tokyo::cabinet"
+include_recipe "tokyo::tyrant"
