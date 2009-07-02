@@ -17,6 +17,6 @@
 # limitations under the License.
 #
 
-package "zlibg1-dev" do
+package "zlib1g-dev" do
   action :install
 end
