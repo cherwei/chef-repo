@@ -24,3 +24,11 @@ end
 package "libbz2-dev" do
   action :install
 end
+
+package "libsqlite3-0" do
+  action :install
+end
+
+package "libsqlite3-dev" do
+  action :install
+end

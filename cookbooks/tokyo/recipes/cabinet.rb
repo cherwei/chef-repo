@@ -13,4 +13,5 @@ user "root"
   make
   make install
   EOH
+  not_if do File.exists?("/usr/local/share/tokyocabinet") end
 end
