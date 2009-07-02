@@ -17,4 +17,4 @@
 # limitations under the License.
 #
 
-include_recipe "tokyo:cabinet"
+include_recipe "tokyo::cabinet"
