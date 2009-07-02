@@ -10,7 +10,7 @@ user "root"
   tar -xvf #{tarball}
   cd #{name}
   ./configure
-  make
+  make #{node[:tokyo_lua][:platform]}
   make install
   EOH
   not_if do File.exists?("/usr/local/share/tokyolua") end
