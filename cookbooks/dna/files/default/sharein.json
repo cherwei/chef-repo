@@ -8,11 +8,6 @@
   
   "gems": [
     {
-      "name": "actsasflinn-ruby-tokyotyrant",
-      "version": "0.1.8",
-      "source": "http://gems.github.com"
-    },
-    {
       "name": "addressable",
       "version": "2.0.1"
     },
