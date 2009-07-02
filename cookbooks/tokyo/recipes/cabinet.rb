@@ -3,7 +3,7 @@ tarball = url.split('/').last
 name = tarball.split('.tar.gz').first
 
 bash "install_cabinet" do
-user "zoe"
+user "root"
   cwd "/tmp"
   code <<-EOH 
   wget #{url}
