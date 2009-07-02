@@ -2,7 +2,7 @@ url = node[:tokyo_tyrant][:url]
 tarball = url.split('/').last
 name = tarball.split('.tar.gz').first
 
-bash "install_cabinet" do
+bash "install_tyrant" do
 user "root"
   cwd "/tmp"
   code <<-EOH 

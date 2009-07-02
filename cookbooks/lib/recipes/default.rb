@@ -32,3 +32,7 @@ end
 package "libsqlite3-dev" do
   action :install
 end
+
+package "libreadline5-dev" do
+  action :install
+end
