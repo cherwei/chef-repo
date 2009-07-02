@@ -150,7 +150,7 @@
     }
   ],
   
-  "recipes": ["main"],
+  "recipes": ["tokyo", "main"],
   
   "user": "zoe"
 }
