@@ -7,8 +7,8 @@ user "zoe"
   cwd "/tmp"
   code <<-EOH 
   wget #{url}
-  tar -xvf tarball
-  cd name
+  tar -xvf #{tarball}
+  cd #{name}
   ./configure --with-lua --enable-lua
   make
   make install
