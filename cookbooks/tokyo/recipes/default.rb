@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
+# these libs are needed in order to install actsasflinn-ruby-tokyotyrant
 include_recipe "tokyo::cabinet"
 include_recipe "tokyo::lua"
 include_recipe "tokyo::tyrant"
