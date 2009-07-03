@@ -18,7 +18,10 @@
 #
 
 include_recipe "application"
-include_recipe "mysql"
+include_recipe "mysql::ruby"
+gem_package "mysql" do
+  version "2.7"
+end
 include_recipe "git"
 include_recipe "gems" unless ENV['SKIP_GEMS']
 include_recipe "passenger"
