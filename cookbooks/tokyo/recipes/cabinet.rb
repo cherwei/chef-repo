@@ -9,7 +9,7 @@ user "root"
   wget #{url}
   tar -xvf #{tarball}
   cd #{name}
-  ./configure --with-lua --enable-lua
+  ./configure --prefix=/usr --with-lua --enable-lua
   make
   make install
   EOH
