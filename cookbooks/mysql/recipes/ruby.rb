@@ -20,3 +20,5 @@
 #
 
 package "libmysql-ruby1.8"
+include_recipe "mysql::client"
+include_recipe "mysql::server"
