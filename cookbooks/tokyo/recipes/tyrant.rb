@@ -13,5 +13,5 @@ user "root"
   make
   make install
   EOH
-  not_if do File.exists?("/usr/local/share/tokyotyrant") end
+  not_if do File.exists?("/usr/share/tokyotyrant") end
 end

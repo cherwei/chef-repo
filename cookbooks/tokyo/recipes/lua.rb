@@ -13,5 +13,5 @@ user "root"
   make #{node[:tokyo_lua][:platform]}
   make install
   EOH
-  not_if do File.exists?("/usr/local/share/tokyolua") end
+  not_if do File.exists?("/usr/local/share/lua") end
 end
