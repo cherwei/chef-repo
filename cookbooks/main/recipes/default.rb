@@ -17,6 +17,7 @@
 # limitations under the License.
 #
 
+include_recipe "application"
 include_recipe "git"
 include_recipe "gems" unless ENV['SKIP_GEMS']
 include_recipe "passenger"
