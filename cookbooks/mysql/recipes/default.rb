@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: main
+# Cookbook Name:: mysql
 # Recipe:: default
 #
-# Copyright 2009, Example Com
+# Copyright 2008, OpsCode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,8 +17,4 @@
 # limitations under the License.
 #
 
-include_recipe "application"
-include_recipe "mysql"
-include_recipe "git"
-include_recipe "gems" unless ENV['SKIP_GEMS']
-include_recipe "passenger"
+include_recipe "mysql::client"
