@@ -17,8 +17,6 @@
 # limitations under the License.
 #
 
-include_recipe "mysql::client"
-
 package "mysql-server" do
   action :install
 end
