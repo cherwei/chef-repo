@@ -1,0 +1,38 @@
+<VirtualHost *:80>
+  ServerName <%= @server_name %>
+  <%= "ServerAlias #{@aliases.join(' ')}" if @aliases && !@aliases.empty? %>
+  DocumentRoot <%= @docroot %>
+  RailsEnv <%= @env %>
+  RackEnv <%= @env %>
+  RailsAllowModRewrite on
+
+  <Directory <%= @docroot %>>
+    Options FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+  </Directory>
+
+  <Location />
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE text/css
+  </Location>
+
+  # Canonical host
+  RewriteCond %{HTTP_HOST}   !^(a[0-3]\.)?<%= @server_name %> [NC]
+  RewriteCond %{HTTP_HOST}   !^$
+  RewriteRule ^/(.*)$        http://<%= @server_name %>/$1 [L,R=301]
+
+  <% if @rewrites %>
+  RewriteEngine On
+  <% end %>
+  <% @rewrites.each do |rewrite| %>
+  <%= rewrite %>
+  <% end if @rewrites %>
+
+  CustomLog /var/log/apache2/<%= @app %>_access.log combined
+  ErrorLog /var/log/apache2/<%= @app %>_error.log
+  RewriteLog /var/log/apache2/<%= @app %>_rewrite.log
+</VirtualHost>

@@ -1,0 +1,39 @@
+<VirtualHost *:443>
+  ServerName <%= @server_name %>
+  DocumentRoot <%= @docroot %>
+  RailsEnv <%= @env %>
+  RackEnv <%= @env %>
+  RailsAllowModRewrite on
+
+  <Directory <%= @docroot %>>
+    Options FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+  </Directory>
+
+  <Location />
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE text/css
+  </Location>
+
+  <% if @rewrites %>
+  RewriteEngine On
+  <% end %>
+  <% @rewrites.each do |rewrite| %>
+  <%= rewrite %>
+  <% end if @rewrites %>
+
+  <% if @certs %>
+  SSLEngine On
+  <% end %>
+  <% @certs.each do |cert| %>
+  <%= cert %>
+  <% end if @certs %>
+
+  CustomLog /var/log/apache2/<%= @app %>_access_ssl.log combined
+  ErrorLog /var/log/apache2/<%= @app %>_error_ssl.log
+  RewriteLog /var/log/apache2/<%= @app %>_rewrite_ssl.log
+</VirtualHost>

@@ -1,8 +1,10 @@
 #
-# Cookbook Name:: main
-# Recipe:: default
+# Cookbook Name:: apache2
+# Recipe:: passenger
 #
-# Copyright 2009, Example Com
+# Based on instructions on http://www.howtoforge.com/ubuntu-8.04-server-install-xen-from-ubuntu-repositories
+#
+# Copyright 2009, ZoeCity Software Company
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,6 +19,6 @@
 # limitations under the License.
 #
 
-include_recipe "git"
-include_recipe "gems" unless ENV['SKIP_GEMS']
-include_recipe "passenger"
+package "libapache2-mod-passenger"
+
+apache_module "passenger"
