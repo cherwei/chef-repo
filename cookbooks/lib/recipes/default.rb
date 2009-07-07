@@ -36,3 +36,19 @@ end
 package "libreadline5-dev" do
   action :install
 end
+
+package "libxml2" do
+  action :install
+end
+
+package "libxml2-dev" do
+  action :install
+end
+
+package "libxslt-dev" do
+  action :install
+end
+
+package "rails" do
+  action :install
+end
