@@ -45,7 +45,7 @@ package "libxml2-dev" do
   action :install
 end
 
-package "libxslt-dev" do
+package "libxslt1-dev" do
   action :install
 end
 
